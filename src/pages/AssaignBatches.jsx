@@ -8,6 +8,7 @@ import {
   FormHelperText,
   Snackbar,
   Alert,
+  Box,
 } from "@mui/material";
 
 import Radio from "@mui/material/Radio";
@@ -42,7 +43,7 @@ function AssignBatchesComponent({ userId }) {
   const [snackbarMessage, setSnackbarMessage] = useState("");
   const [snackbarSeverity, setSnackbarSeverity] = useState("success");
 
-  const [selectedRole, setSelectedRole] = useState(""); // For radio selection
+  const [selectedRole, setSelectedRole] = useState("admin"); // For radio selection
   const [dropdownOptions, setDropdownOptions] = useState([]); // Dropdown data from API
   const [dropdownValue, setDropdownValue] = useState("");
   const [technology, setTechnology] = useState("");
@@ -303,46 +304,37 @@ function AssignBatchesComponent({ userId }) {
         </div>
 
         <div className="mb-5">
-          <FormControl>
-            <RadioGroup
-              row
-              aria-labelledby="demo-row-radio-buttons-group-label"
-              name="row-radio-buttons-group"
-              // value={selectedValue}
-              // onChange={handleRadioChange}
-              value={selectedRole}
+          <FormControl
+            error={!!errors.selectedRole}
+            fullWidth
+            sx={{ width: "50%" }}
+          >
+            <InputLabel id="dropdown-label">Select Role</InputLabel>
+            <Select
+              labelId="dropdown-label"
+              value={selectedRole || "admin"}
               onChange={handleRadioChange}
+              name="role-dropdown"
             >
-              <FormControlLabel
-                value="admin"
-                control={<Radio />}
-                label="Admin"
-              />
-              <FormControlLabel
-                value="faculty"
-                control={<Radio />}
-                label="Faculty"
-              />
-              <FormControlLabel
-                value="interviewer"
-                control={<Radio />}
-                label="Interviewer"
-              />
-              <FormControlLabel
-                value="mentor"
-                control={<Radio />}
-                label="Mentor"
-              />
-            </RadioGroup>
+              <MenuItem value="admin">Admin</MenuItem>
+              <MenuItem value="faculty">Faculty</MenuItem>
+              <MenuItem value="interviewer">Interviewer</MenuItem>
+              <MenuItem value="mentor">Mentor</MenuItem>
+            </Select>
             {errors.selectedRole && (
-              <p style={{ fontSize: "14px", color: "red" }}>Select User Role</p>
+              <Box sx={{ color: "error.main", fontSize: "0.8rem", mt: 1 }}>
+                Select User Role
+              </Box>
             )}
           </FormControl>
+        </div>
+        <div>
           <Button
             onClick={() => {
               setShowForm(!showForm);
             }}
             variant="contained"
+            sx={{ mb: 2 }}
           >
             {!showForm ? "Add New" : "show Batches Data"}
           </Button>
@@ -447,15 +439,15 @@ function AssignBatchesComponent({ userId }) {
                     value={batchId}
                     label="Select A Batch"
                   >
-                    
-                    {Array.isArray(batches) && batches.length >0 ? (
+                    {Array.isArray(batches) && batches.length > 0 ? (
                       batches?.map((batch) => (
                         <MenuItem key={batch.BatchId} value={batch.BatchId}>
                           {batch.BatchName}
                         </MenuItem>
-                      ))):
+                      ))
+                    ) : (
                       <MenuItem disabled>No Batch Found</MenuItem>
-                      }
+                    )}
                   </Select>
                   {/* {!!errors.batch && (
                 <FormHelperText>{errors.batch}</FormHelperText>
