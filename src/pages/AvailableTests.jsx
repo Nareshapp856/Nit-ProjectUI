@@ -16,6 +16,7 @@ import dayjs from "dayjs";
 
 function AvailableMockTest() {
   const [submittedData, setSubmittedDataTable] = useState([]);
+  const [filteredData, setFilteredData] = useState([]); // State for filtered data
   const [currentDateTime, setCurrentDateTime] = useState(new Date());
   const [page, setPage] = useState(0); // Current page
   const [rowsPerPage, setRowsPerPage] = useState(5); // Rows per page
@@ -26,6 +27,7 @@ function AvailableMockTest() {
       .get(`http://49.207.10.13:4017/api/nit/fetchMocktestDetails`)
       .then((res) => {
         setSubmittedDataTable(res.data);
+        filterData(res.data); // Filter data initially
       });
   }, []);
 
@@ -68,6 +70,18 @@ function AvailableMockTest() {
     );
   };
 
+  const filterData = (data) => {
+    const filtered = data.filter((item) => {
+      return (
+        (item.TestType === "Descriptive-Test" &&
+          (userData.type === "mentor" || userData.type === "superadmin")) ||
+        (item.TestType === "Mock-Test" &&
+          (userData.type === "interviewer" || userData.type === "superadmin"))
+      );
+    });
+    setFilteredData(filtered);
+  };
+
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
@@ -92,64 +106,54 @@ function AvailableMockTest() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {Array.isArray(submittedData) && submittedData.length > 0 ? (
-            submittedData
+          {Array.isArray(filteredData) && filteredData.length > 0 ? (
+            filteredData
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage) // Slice data for pagination
               .map((data, index) => {
-                if (
-                  (data.TestType === "Descriptive-Test" &&
-                    (userData.type === "mentor" ||
-                      userData.type === "superadmin")) ||
-                  (data.TestType === "Mock-Test" &&
-                    (userData.type === "interviewer" ||
-                      userData.type === "superadmin"))
-                ) {
-                  const isEnabled = isButtonEnabled(
-                    data.TestStartDate,
-                    data.TestStartTime,
-                    data.TestEndTime
-                  );
+                const isEnabled = isButtonEnabled(
+                  data.TestStartDate,
+                  data.TestStartTime,
+                  data.TestEndTime
+                );
 
-                  return (
-                    <TableRow key={index}>
-                      <TableCell>{data.TestName}</TableCell>
-                      <TableCell>
-                        {dayjs(data.TestStartDate).format("YYYY-MM-DD")}
-                      </TableCell>
-                      <TableCell>{data.TestStartTime.split(".")[0]}</TableCell>
-                      <TableCell>{data.TestEndTime.split(".")[0]}</TableCell>
-                      <TableCell>{data.ModuleName}</TableCell>
-                      <TableCell>{data.TopicNames}</TableCell>
-                      <TableCell>
-                        {data.IsResultSubmitted === null ||
-                        data.IsResultSubmitted === false ? (
-                          <Button
-                            variant="contained"
-                            disabled={!isEnabled}
-                            sx={{ fontSize: "15px" }}
+                return (
+                  <TableRow key={index}>
+                    <TableCell>{data.TestName}</TableCell>
+                    <TableCell>
+                      {dayjs(data.TestStartDate).format("YYYY-MM-DD")}
+                    </TableCell>
+                    <TableCell>{data.TestStartTime.split(".")[0]}</TableCell>
+                    <TableCell>{data.TestEndTime.split(".")[0]}</TableCell>
+                    <TableCell>{data.ModuleName}</TableCell>
+                    <TableCell>{data.TopicNames}</TableCell>
+                    <TableCell>
+                      {data.IsResultSubmitted === null ||
+                      data.IsResultSubmitted === false ? (
+                        <Button
+                          variant="contained"
+                          disabled={!isEnabled}
+                          sx={{ fontSize: "15px" }}
+                        >
+                          <Link
+                            to={`/mentor-form/?testName=${data.TestName}&testId=${data.testid}`}
+                            style={{ color: "white", textDecoration: "none" }}
                           >
-                            <Link
-                              to={`/mentor-form/?testName=${data.TestName}&testId=${data.testid}`}
-                              style={{ color: "white", textDecoration: "none" }}
-                            >
-                              Evaluate Test
-                            </Link>
-                          </Button>
-                        ) : (
-                          <Button variant="contained" color="secondary">
-                            <Link
-                              to={`/testResults/?testName=${data.TestName}&testId=${data.testid}`}
-                              style={{ color: "white", textDecoration: "none" }}
-                            >
-                              View Results
-                            </Link>
-                          </Button>
-                        )}
-                      </TableCell>
-                    </TableRow>
-                  );
-                }
-                return null;
+                            Evaluate Test
+                          </Link>
+                        </Button>
+                      ) : (
+                        <Button variant="contained" color="secondary">
+                          <Link
+                            to={`/testResults/?testName=${data.TestName}&testId=${data.testid}`}
+                            style={{ color: "white", textDecoration: "none" }}
+                          >
+                            View Results
+                          </Link>
+                        </Button>
+                      )}
+                    </TableCell>
+                  </TableRow>
+                );
               })
           ) : (
             <TableRow>
@@ -161,7 +165,7 @@ function AvailableMockTest() {
       <TablePagination
         rowsPerPageOptions={[5, 10, 15]}
         component="div"
-        count={submittedData.length}
+        count={filteredData.length}
         rowsPerPage={rowsPerPage}
         page={page}
         onPageChange={handleChangePage}
