@@ -26,6 +26,8 @@ import ErrorIcon from "@mui/icons-material/Error";
 import CircularProgress from "@mui/material/CircularProgress";
 import ClearRoundedIcon from "@mui/icons-material/ClearRounded";
 
+import { Select, MenuItem, InputLabel } from "@mui/material";
+
 const mobileRegex = /^(\+?\d{1,3} ?)?\d{10}$/;
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -297,38 +299,21 @@ function InterviewerRegisterFormComponent({
         sx={{ paddingX: "20px" }}
       >
         <Grid container spacing={3}>
-          <Grid item xs={12}>
-            <FormControl error={!!errors.type} component="fieldset">
-              <RadioGroup
-                row
-                aria-labelledby="demo-row-radio-buttons-group-label"
-                name="row-radio-buttons-group"
+          <Grid item xs={6}>
+            <FormControl error={!!errors.type} fullWidth sx={{ mb: 2 }}>
+              <InputLabel id="dropdown-label">Select Role</InputLabel>
+              <Select
+                labelId="dropdown-label"
                 value={selectedValue}
-                onChange={handleRadioChange}
+                onChange={handleRadioChange} // Use the same handler
+                name="role-dropdown"
               >
-                <FormControlLabel
-                  value="admin"
-                  control={<Radio />}
-                  label="Admin"
-                />
-                <FormControlLabel
-                  value="faculty"
-                  control={<Radio />}
-                  label="Faculty"
-                />
-                <FormControlLabel
-                  value="interviewer"
-                  control={<Radio />}
-                  label="Interviewer"
-                />
-                <FormControlLabel
-                  value="mentor"
-                  control={<Radio />}
-                  label="Mentor"
-                />
-              </RadioGroup>
-              {/* Ashish Chauhan 15-11-2024 Start */}
-              {/*  Show the error message */}
+                <MenuItem value="admin">Admin</MenuItem>
+                <MenuItem value="faculty">Faculty</MenuItem>
+                <MenuItem value="interviewer">Interviewer</MenuItem>
+                <MenuItem value="mentor">Mentor</MenuItem>
+              </Select>
+              {/* Show the error message */}
               {errors.type && (
                 <Box sx={{ color: "error.main", fontSize: "0.8rem", mt: 1 }}>
                   {errors.type}
