@@ -1,0 +1,423 @@
+[
+  {
+    "title": "admin",
+
+    "childrens": [
+      {
+        "title": "Master Data Management",
+        "childrens": [
+          {
+            "title": "Manage Technologies",
+            "path": "/technologies"
+          },
+          {
+            "title": "Manage Modules",
+            "path": "/modules/0"
+          },
+          {
+            "title": "Manage Topics",
+            "path": "/topics/0"
+          },
+          {
+            "title": "Manage SubTopics",
+            "path": "/subtopics/0"
+          }
+        ]
+      },
+      {
+        "title": "User Management",
+        "childrens": [
+          {
+            "title": "User Registration",
+            "path": "/user-registration"
+          },
+          {
+            "title": "Assign Batch",
+            "path": "/assaign-batches-form"
+          }
+        ]
+      },
+      {
+        "title": "Student Management",
+        "childrens": [
+          {
+            "title": "Create Batch",
+            "path": "/user-management"
+          },
+          {
+            "title": "Manage Course Curriculum",
+            "path": "/view-curriculum-course"
+          },
+          {
+            "title": "Manage Batch Curriculums",
+            "path": "/batch-curriculums"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "mentor",
+
+    "childrens": [
+      {
+        "title": "Test Management",
+        "childrens": [
+          {
+            "title": "Manage MCQ/Coding Test",
+            "path": "/categories/assessmentlist"
+          },
+          {
+            "title": "MCQ Question View",
+            "path": "/question-view/:SubTopicID"
+          },
+          {
+            "title": "Program View",
+            "path": "/program-view"
+          },
+          {
+            "title": "Test Cases View",
+            "path": "/testcase-view"
+          }
+        ]
+      },
+      {
+        "title": "Scheduling",
+        "childrens": [
+          {
+            "title": "Scheduling MCQ/Coding Tests",
+            "path": "/enroll-student"
+          },
+          {
+            "_title": "Scheduling Coding Test",
+            "_path": "#"
+          },
+          {
+            "_title": "Scheduling Coding with TestCases",
+            "-path": "#"
+          }
+        ]
+      },
+      {
+        "title": "External Tests",
+        "childrens": [
+          {
+            "title": "Available Descriptive Test",
+            "path": "/available-tests"
+          },
+          {
+            "_title": "Create Descriptive/MCQ/Mock Test",
+            "_path": "/categories/assessmentlist"
+          }
+        ]
+      },
+      {
+        "title": "Student Management",
+        "childrens": [
+          {
+            "title": "Manage Student",
+            "path": "/manage-student"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "faculty",
+
+    "childrens": [
+      {
+        "title": "Curriculum",
+        "childrens": [
+          {
+            "title": "View Curriculum",
+            "path": "/view-curriculum"
+          },
+          {
+            "title": "Create Curriculum",
+            "path": "/create-course-curriculum"
+          },
+          {
+            "title": "Assign Curriculum to Batch",
+            "path": "/assaign-curriculum"
+          }
+        ]
+      },
+      {
+        "_title": "Scheduling",
+        "_childrens": [
+          {
+            "title": "Manage Schedule",
+            "path": "#"
+          }
+        ]
+      },
+      {
+        "title": "Test Management",
+        "childrens": [
+          {
+            "title": "List of Mock/Descriptive Tests",
+            "path": "/mock-test-creation"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "interviewer",
+
+    "childrens": [
+      {
+        "_title": "Test Management",
+        "_childrens": [
+          {
+            "title": "Create Mock Test",
+            "path": "#"
+          }
+        ]
+      },
+      {
+        "title": "External Tests",
+        "childrens": [
+          {
+            "title": "Available Mock Tests",
+            "path": "/available-tests"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_title": "View Curriculum",
+
+    "_childrens": [
+      {
+        "title": "Create Curriculum",
+        "path": "/faculty/create-course-curriculum"
+      },
+      {
+        "title": "Approved ",
+        "path": "/login"
+      },
+      {
+        "title": "Reject",
+        "path": "/register"
+      },
+      {
+        "title": "Revert",
+        "path": "/forgot-password"
+      },
+      {
+        "title": "Requested",
+        "path": "/forgot-password"
+      }
+    ]
+  },
+  {
+    "_title": "Assessment Management",
+
+    "_childrens": [
+      {
+        "title": "View Assessment ",
+        "path": "/login"
+      },
+      {
+        "title": "Create Assessment For topics/sub topics",
+        "path": "/register"
+      },
+      {
+        "title": "posting Student Marks",
+        "path": "/mentor"
+      }
+    ]
+  },
+  {
+    "_title": "Report Management",
+
+    "-childrens": [
+      {
+        "title": "MCQ Result ",
+        "path": "/login"
+      },
+      {
+        "title": "Programme Coding Result",
+        "path": "/register"
+      },
+      {
+        "title": "Programme Code Test Cases Resuls",
+        "path": "/forgot-password"
+      }
+    ]
+  },
+  {
+    "title": "superadmin",
+
+    "childrens": [
+      {
+        "title": "Master Data Management",
+        "childrens": [
+          {
+            "title": "Manage Technologies",
+            "path": "/technologies"
+          },
+          {
+            "title": "Manage Modules",
+            "path": "/modules/0"
+          },
+          {
+            "title": "Manage Topics",
+            "path": "/topics/0"
+          },
+          {
+            "title": "Manage SubTopics",
+            "path": "/subtopics/0"
+          }
+        ]
+      },
+      {
+        "title": "User Management",
+        "childrens": [
+          {
+            "title": "User Registration",
+            "path": "/user-registration"
+          },
+          {
+            "title": "Assign Batch",
+            "path": "/assaign-batches-form"
+          }
+        ]
+      },
+      {
+        "title": "Student Management",
+        "childrens": [
+          {
+            "title": "Create Batch",
+            "path": "/user-management"
+          },
+          {
+            "title": "Manage Course Curriculum",
+            "path": "/view-curriculum-course"
+          },
+          {
+            "title": "Manage Batch Curriculums",
+            "path": "/batch-curriculums"
+          }
+        ]
+      },
+      
+      {
+        "title": "Curriculum",
+        "childrens": [
+          {
+            "title": "View Curriculum",
+            "path": "/view-curriculum"
+          },
+          {
+            "title": "Create Curriculum",
+            "path": "/create-course-curriculum"
+          },
+          {
+            "title": "Assign Curriculum to Batch",
+            "path": "/assaign-curriculum"
+          }
+        ]
+      },
+      {
+        "_title": "Scheduling",
+        "_childrens": [
+          {
+            "title": "Manage Schedule",
+            "path": "#"
+          }
+        ]
+      },
+      {
+        "title": "Test Management",
+        "childrens": [
+          {
+            "title": "List of Mock/Descriptive Tests",
+            "path": "/mock-test-creation"
+          }
+        ]
+      },
+      {
+        "_title": "Test Management",
+        "_childrens": [
+          {
+            "title": "Create Mock Test",
+            "path": "#"
+          }
+        ]
+      },
+      {
+        "title": "Test Management",
+        "childrens": [
+          {
+            "title": "Manage MCQ/Coding Test",
+            "path": "/categories/assessmentlist"
+          },
+          {
+            "title": "MCQ Question View",
+            "path": "/question-view/:SubTopicID"
+          },
+          {
+            "title": "Program View",
+            "path": "/program-view"
+          },
+          {
+            "title": "Test Cases View",
+            "path": "/testcase-view"
+          }
+        ]
+      },
+      {
+        "title": "Scheduling",
+        "childrens": [
+          {
+            "title": "Scheduling MCQ/Coding Tests",
+            "path": "/enroll-student"
+          },
+          {
+            "_title": "Scheduling Coding Test",
+            "_path": "#"
+          },
+          {
+            "_title": "Scheduling Coding with TestCases",
+            "-path": "#"
+          }
+        ]
+      },
+      {
+        "title": "External Tests",
+        "childrens": [
+          {
+            "title": "Available Descriptive Test",
+            "path": "/available-tests"
+          },
+          {
+            "_title": "Create Descriptive/MCQ/Mock Test",
+            "_path": "/categories/assessmentlist"
+          }
+        ]
+      },
+      {
+        "title": "Student Management",
+        "childrens": [
+          {
+            "title": "Manage Student",
+            "path": "/manage-student"
+          }
+        ]
+      },
+      {
+        "title": "External Tests",
+        "childrens": [
+          {
+            "title": "Available Mock Tests",
+            "path": "/available-tests"
+          }
+        ]
+      }
+    ]
+  }
+]

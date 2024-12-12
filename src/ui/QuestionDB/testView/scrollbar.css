@@ -1,0 +1,23 @@
+/* For webkit-based browsers (Chrome, Safari) */
+.scroll::-webkit-scrollbar {
+  width: 4px; /* Adjust the width as needed */
+}
+
+.scroll::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px; /* Adjust the border radius as needed */
+}
+
+.scroll::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* For Firefox */
+.scroll {
+  scrollbar-width: thin; /* "auto" or "thin" */
+  scrollbar-color: #888 #f1f1f1; /* thumb and track color */
+}

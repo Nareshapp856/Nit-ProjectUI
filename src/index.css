@@ -1,0 +1,296 @@
+@tailwind base;
+
+@tailwind components;
+@tailwind utilities;
+@layer components {
+  html::-webkit-scrollbar {
+    width: 10px;
+    height: 8px;
+  }
+
+  html::-webkit-scrollbar-thumb {
+    background-color: rgb(186, 163, 166);
+  }
+
+  html::-webkit-scrollbar-track {
+    background-color: #eee;
+  }
+
+  html::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(114, 91, 91);
+  }
+
+  .scroll::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+
+  .scroll::-webkit-scrollbar-thumb {
+    background-color: rgb(186, 163, 166);
+  }
+
+  .scroll::-webkit-scrollbar-track {
+    background-color: #eee;
+  }
+
+  .scroll::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(114, 91, 91);
+  }
+
+  html {
+    font-size: 1.07rem;
+    font-weight: 400;
+  }
+
+  .input[type="number"] {
+    appearance: textfield;
+    -moz-appearance: textfield;
+    -webkit-appearance: textfield;
+    overflow: hidden;
+  }
+
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  .input {
+    text-align: center;
+  }
+
+  ._text-start {
+    text-align: start;
+  }
+
+  .green {
+    background-color: rgb(187 247 208);
+  }
+
+  .rose {
+    background-color: rgb(254 205 211);
+  }
+
+  .red {
+    background-color: rgb(248 113 113);
+  }
+
+  .disabled {
+    background-color: rgb(252 165 165) !important;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 6px; /* Adjust width as desired */
+  height: 8px; /* Adjust height as desired */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #ddd; /* Adjust color as desired */
+  border-radius: 5px; /* Add rounded corners */
+}
+
+.hide-scroll::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for webkit (Chrome, Safari) */
+}
+
+.hide-scroll {
+  -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
+}
+
+.react-calendar {
+  width: 100%;
+  max-width: 100%;
+  padding: 0.8rem;
+  color: #222;
+  border-radius: 8px;
+  /* border: 1px solid #a0a096; */
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.125em;
+}
+.react-calendar--doubleView {
+  width: 700px;
+}
+.react-calendar--doubleView .react-calendar__viewContainer {
+  display: flex;
+  margin: -0.5em;
+}
+.react-calendar--doubleView .react-calendar__viewContainer > * {
+  width: 50%;
+  margin: 0.5em;
+}
+.react-calendar,
+.react-calendar *,
+.react-calendar *:before,
+.react-calendar *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.react-calendar button {
+  margin: 0;
+  border: 0;
+  outline: none;
+}
+.react-calendar button:enabled:hover {
+  cursor: pointer;
+}
+.react-calendar__navigation {
+  display: flex;
+  height: 44px;
+  margin-bottom: 1em;
+}
+.react-calendar__navigation button {
+  color: #082f45;
+  min-width: 44px;
+  background: none;
+  font-size: 16px;
+  margin-top: 8px;
+}
+.react-calendar__navigation button:disabled {
+  background-color: #f0f0f0;
+}
+.react-calendar__navigation button:enabled:hover,
+.react-calendar__navigation button:enabled:focus {
+  background-color: #f8f8fa;
+}
+.react-calendar__month-view__weekdays {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 0.75em;
+}
+.react-calendar__month-view__weekdays__weekday {
+  padding: 0.5em;
+}
+.react-calendar__month-view__weekNumbers .react-calendar__tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75em;
+  font-weight: bold;
+}
+.react-calendar__month-view__days__day--weekend {
+  color: #082f45;
+}
+.react-calendar__month-view__days__day--neighboringMonth {
+  color: #757575;
+}
+.react-calendar__year-view .react-calendar__tile,
+.react-calendar__decade-view .react-calendar__tile,
+.react-calendar__century-view .react-calendar__tile {
+  padding: 2em 0.5em;
+}
+.react-calendar__tile {
+  max-width: 100%;
+  padding: 10px 6.6667px;
+  background: none;
+  text-align: center;
+  line-height: 16px;
+}
+.react-calendar__tile:disabled {
+  background-color: #f0f0f0;
+}
+.react-calendar__tile:enabled:hover,
+.react-calendar__tile:enabled:focus {
+  background: #f8f8fa;
+  color: #082f45;
+  border-radius: 6px;
+}
+.react-calendar__tile--now {
+  background: #646269;
+  border-radius: 6px;
+  font-weight: bold;
+  color: #fff;
+}
+.react-calendar__tile--now:enabled:hover,
+.react-calendar__tile--now:enabled:focus {
+  background: #082f4533;
+  border-radius: 6px;
+  font-weight: bold;
+  color: #082f45;
+}
+.react-calendar__tile--hasActive {
+  background: #082f45;
+}
+.react-calendar__tile--hasActive:enabled:hover,
+.react-calendar__tile--hasActive:enabled:focus {
+  background: #f8f8fa;
+}
+.react-calendar__tile--active {
+  background: #082f45;
+  border-radius: 6px;
+  font-weight: bold;
+  color: white;
+}
+.react-calendar__tile--active:enabled:hover,
+.react-calendar__tile--active:enabled:focus {
+  background: #082f45;
+  color: white;
+}
+.react-calendar--selectRange .react-calendar__tile--hover {
+  background-color: #f8f8fa;
+}
+
+.react-calendar__tile--range {
+  background: #bfb3e8;
+  color: #082f45;
+  border-radius: 0;
+}
+.react-calendar__tile--rangeStart {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+  background: #082f45;
+  color: white;
+}
+.react-calendar__tile--rangeEnd {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  background: #082f45;
+  color: white;
+}
+
+/* Css for MockAnd Descriptive Form */
+.MuiFormControl-root {
+  width: 100%;
+}
+.header {
+  background-color: #f3f3f4;
+}
+
+.time-input-container h2 {
+  text-align: center;
+  color: #333;
+}
+
+.time-input-container label {
+  color: #555;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.time-input-container input[type="time"] {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  outline: none;
+  transition: border 0.3s;
+  background: transparent;
+}
+
+.time-input-container input[type="time"]:focus {
+  border-color: #007bff;
+}
+
+/* Mentor Form CSS */
+.heading {
+  color: #37afe1;
+}
