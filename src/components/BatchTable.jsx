@@ -157,7 +157,7 @@ function BatchTableComponent({
   const confirmDelete = async () => {
     try {
       const res = await deleteBatchAssignement({
-        recordToDelete: recordToDelete.id,
+        recordToDelete: recordToDelete.mappingId,
         userId,
       });
       if (res.status === 200) {
