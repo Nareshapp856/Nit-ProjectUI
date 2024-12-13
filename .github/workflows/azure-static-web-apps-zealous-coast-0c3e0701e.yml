@@ -19,6 +19,9 @@ jobs:
         with:
           submodules: true
           lfs: false
+      - name: Install Dependencies
+        run: |
+          npm install --legacy-peer-deps  # This will resolve dependency conflicts by ignoring peer dependencies
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
