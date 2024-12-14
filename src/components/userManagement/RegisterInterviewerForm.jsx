@@ -205,6 +205,7 @@ function InterviewerRegisterFormComponent({
       email: formData.email.trim(),
       technologies: selectedTechnologies.map((tech) => tech.id),
       type: selectedValue,
+      role:"admin"
     };
 
     registerInterviewer(completeFormData); // Dispatch the action to register

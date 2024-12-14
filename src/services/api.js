@@ -62,7 +62,7 @@ export async function registerInterviewerAPI(payload) {
   console.log(payload);
   try {
     const res = await authAPI.post(
-      `api/interviewer/register-interviewer`,
+      `api/interviewer/registerUser`,
       payload
     );
     console.log(res);

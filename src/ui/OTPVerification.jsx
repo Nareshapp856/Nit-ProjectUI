@@ -9,7 +9,7 @@ import {
   Paper,
 } from "@mui/material";
 import PropTypes from "prop-types";
-import { Input as BaseInput } from "@mui/base/Input";
+import { Input as BaseInput } from "@mui/material";
 import { styled } from "@mui/system";
 
 
